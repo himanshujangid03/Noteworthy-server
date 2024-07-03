@@ -91,8 +91,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL:
-        "https://noteworthy-server-latest.onrender.com/auth/google/secrets",
+      callbackURL: "http://localhost:8000/auth/google/secrets",
       userProfileURL: "http://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) => {
@@ -102,7 +101,7 @@ passport.use(
 
         if (!user) {
           const newUser = await User.create({
-            name: profile.displayName,
+            name: profile.name.displayName,
             email: profile.email,
             password: profile.id,
             picture: profile.picture,
