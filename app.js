@@ -82,7 +82,6 @@ app.get("/user/google/logout", (req, res, next) => {
     console.log("logged out from google");
   });
   res.redirect("https://noteworthy-app.vercel.app");
-  next();
 });
 
 passport.use(
@@ -91,7 +90,8 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:8000/auth/google/secrets",
+      callbackURL:
+        "https://noteworthy-server-latest.onrender.com/auth/google/secrets",
       userProfileURL: "http://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) => {
