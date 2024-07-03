@@ -103,7 +103,7 @@ exports.logout = catchAsync(async (req, res, next) => {
   };
 
   res.cookie("jwt", "", cookieOptions);
-  res.redirect("https://noteworthy2.vercel.app");
+  res.redirect("https://noteworthy-app.vercel.app");
   next();
 });
 

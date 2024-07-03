@@ -23,6 +23,6 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
   await Task.deleteMany({ userId: userId });
   await User.findByIdAndDelete(userId);
 
-  res.redirect("https://noteworthy2.vercel.app/");
+  res.redirect("https://noteworthy-app.vercel.app/");
   next();
 });
